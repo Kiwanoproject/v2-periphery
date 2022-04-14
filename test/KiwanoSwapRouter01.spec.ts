@@ -15,11 +15,11 @@ const overrides = {
 }
 
 enum RouterVersion {
-  UniswapV2Router01 = 'UniswapV2Router01',
-  UniswapV2Router02 = 'UniswapV2Router02'
+  KiwanoSwapRouter01 = 'KiwanoSwapRouter01',
+  KiwanoSwapRouter02 = 'KiwanoSwapRouter02'
 }
 
-describe('UniswapV2Router{01,02}', () => {
+describe('KiwanoSwapRouter{01,02}', () => {
   for (const routerVersion of Object.keys(RouterVersion)) {
     const provider = new MockProvider({
       hardfork: 'istanbul',
@@ -46,8 +46,8 @@ describe('UniswapV2Router{01,02}', () => {
       WETHPartner = fixture.WETHPartner
       factory = fixture.factoryV2
       router = {
-        [RouterVersion.UniswapV2Router01]: fixture.router01,
-        [RouterVersion.UniswapV2Router02]: fixture.router02
+        [RouterVersion.KiwanoSwapRouter01]: fixture.router01,
+        [RouterVersion.KiwanoSwapRouter02]: fixture.router02
       }[routerVersion as RouterVersion]
       pair = fixture.pair
       WETHPair = fixture.WETHPair
@@ -368,8 +368,8 @@ describe('UniswapV2Router{01,02}', () => {
           const receipt = await tx.wait()
           expect(receipt.gasUsed).to.eq(
             {
-              [RouterVersion.UniswapV2Router01]: 101876,
-              [RouterVersion.UniswapV2Router02]: 101898
+              [RouterVersion.KiwanoSwapRouter01]: 101876,
+              [RouterVersion.KiwanoSwapRouter02]: 101898
             }[routerVersion as RouterVersion]
           )
         }).retries(3)
@@ -517,8 +517,8 @@ describe('UniswapV2Router{01,02}', () => {
           const receipt = await tx.wait()
           expect(receipt.gasUsed).to.eq(
             {
-              [RouterVersion.UniswapV2Router01]: 138770,
-              [RouterVersion.UniswapV2Router02]: 138770
+              [RouterVersion.KiwanoSwapRouter01]: 138770,
+              [RouterVersion.KiwanoSwapRouter02]: 138770
             }[routerVersion as RouterVersion]
           )
         }).retries(3)
